@@ -43,7 +43,9 @@ Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
+`* * *` | user | list all the contacts | see every contact at once
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | edit a person | edit the detail of a person in case it needs to be changed
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | to minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
@@ -73,6 +75,35 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: Edit person
+
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to edit a specific person in the list
+4. AddressBook shows the details the person
+5. User requests to edit basic information or tag
+6. AddressBook edits and saves the changes
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+>3a1. AddressBook shows an error message <br>
+      Use case resumes at step 2
+
+5a. The information is invalid or the tag does not exist
+
+>5a1. AddressBook shows an error message <br>
+      Use case resumes at step 4
+
 
 ## Appendix C : Non Functional Requirements
 
@@ -80,6 +111,8 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be stand-alone.
+6. Should be able to store address book as an editable file.
 
 ## Appendix D : Glossary
 
